@@ -1,5 +1,5 @@
-import type { LinksFunction } from "@remix-run/cloudflare";
-import { cssBundleHref } from "@remix-run/css-bundle";
+import type { LinksFunction, V2_MetaFunction } from "@remix-run/cloudflare";
+import stylesheet from "~/tailwind.css";
 import {
   Links,
   LiveReload,
@@ -10,8 +10,19 @@ import {
 } from "@remix-run/react";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: stylesheet },
 ];
+
+export const meta: V2_MetaFunction = ({ matches, location, params, data }) => {
+  return [
+    {
+      charSet: "utf-8",
+      title: "Cloudflare D1 x Remix",
+      description:
+        "A demo application that queries Cloudflare's D1 database from a Remix app.",
+    },
+  ];
+};
 
 export default function App() {
   return (

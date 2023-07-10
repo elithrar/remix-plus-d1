@@ -5,7 +5,7 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev --no-restart -c \"npm run start\"",
-    "start": "wrangler pages dev --kv=PRODUCTS_KV --d1=DB --compatibility-date=2023-06-21 ./public",
+    "start": "wrangler pages dev --d1=DB --compatibility-date=2023-06-21 ./public",
     "typecheck": "tsc",
     "pages:deploy": "npm run build && wrangler pages deploy ./public"
   },
@@ -20,12 +20,13 @@
     "remix": "^1.18.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.19.0",
+    "@cloudflare/workers-types": "^4.20",
     "@remix-run/dev": "^1.18.0",
     "@remix-run/eslint-config": "^1.18.0",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "eslint": "^8.38.0",
+    "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4",
     "wrangler": "^3.1.2"
   },

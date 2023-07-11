@@ -18,7 +18,7 @@ interface UserRow {
   settings: string;
 }
 
-const USER_QUERY = "SELECT * FROM users LIMIT 5;";
+const USER_QUERY = "SELECT * FROM users ORDER BY created_at DESC LIMIT 20;";
 
 // Infer the type our data based on the return type of our loader function.
 // Ref: https://jfranciscosousa.com/blog/typing-remix-loaders-with-confidence
@@ -57,14 +57,14 @@ export default function Index() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col flex-wrap py-4 justify-center items-center">
+        <div className="inline-block max-w-full overflow-scroll px-4 justify-center items-center">
           <h2 className="font-extrabold text-2xl py-4 text-blue-800">
             Query Results
           </h2>
           <pre className="text-mono text-sm my-1">Executed: {USER_QUERY}</pre>
-          <div className="flex flex-wrap overflow-y-auto py-2 md-px-8 whitespace-nowrap">
-            <table className="rounded-xl border-collapse text-sm font-light">
-              <thead className="border-b font-medium dark:border-neutral-500 bg-slate-200">
+          <div className="py-2 md-px-8 whitespace-nowrap">
+            <table className="rounded-xl border-collapse text-sm md:text-md font-light">
+              <thead className="border-b dark:border-neutral-500 bg-slate-200">
                 <tr className="font-bold text-left break-words">
                   <th scope="col" className="px-6 py-4">
                     User ID

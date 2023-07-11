@@ -2,7 +2,9 @@
 
 **Note**: 🧪 This is a example application and is not officially supported by Cloudflare.
 
-An example app that shows how to query [Cloduflare D1](https://developers.cloudflare.com/d1/) from a [Remix](https://remix.run/) [`loader`](https://remix.run/docs/en/main/guides/data-loading) function.
+An example app that shows how to query [Cloudflare D1](https://developers.cloudflare.com/d1/) from a [Remix](https://remix.run/) [`loader`](https://remix.run/docs/en/main/guides/data-loading) function.
+
+See the official D1 documentation's [Remix + D1 example](https://developers.cloudflare.com/d1/examples/d1-and-remix/) for code-based example of how to define a `LoaderFunction`.
 
 ## License
 

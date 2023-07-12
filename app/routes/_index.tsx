@@ -57,7 +57,7 @@ export default function Index() {
             </li>
           </ul>
         </div>
-        <div className="inline-block max-w-full overflow-scroll px-4 justify-center items-center">
+        <div className="inline-block max-w-full overflow-scroll md:overflow-hidden px-4 justify-center items-center">
           <h2 className="font-extrabold text-2xl py-4 text-blue-800">
             Query Results
           </h2>

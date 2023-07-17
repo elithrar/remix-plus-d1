@@ -26,7 +26,7 @@ type LoaderData = Awaited<ReturnType<typeof loader>>;
 
 export const loader = async ({ context, params }: LoaderArgs) => {
   let env = context.env as Env;
-  return await env.DB.prepare(USER_QUERY).all();
+  return await env.DB.prepare(USER_QUERY).all<UserRow>();
 };
 
 export default function Index() {

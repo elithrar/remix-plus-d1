@@ -1,11 +1,5 @@
 [[d1_databases]]
-binding = "DB_BROKEN"
-database_name = "db-enam"
-database_id = "c89db32e-83f4-4e62-8cd7-7c8f97659029"
-preview_database_id = "DB" # Required for Pages local development
-
-[[d1_databases]]
 binding = "DB"
 database_name = "db-wnam"
-database_id = "6f2478dc-789b-4f31-95ff-d6001dc617d2│"
+database_id = "6f2478dc-789b-4f31-95ff-d6001dc617d2"
 preview_database_id = "DB" # Required for Pages local development

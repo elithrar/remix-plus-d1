@@ -18,10 +18,11 @@ interface UserRow {
   settings: string;
 }
 
-const USER_QUERY = "SELECT * FROM users WHERE email_address LIKE ? ORDER BY created_at DESC LIMIT 20;";
+const USER_QUERY =
+  "SELECT * FROM users WHERE email_address BETWEEN ? AND (SELECT count(*) FROM [users]) ORDER BY created_at DESC LIMIT 25;";
 
 function generateRandomInt(min: number, max: number) {
-  return Math.floor(min + Math.random()*(max - min + 1))
+  return Math.floor(min + Math.random() * (max - min + 1));
 }
 
 // Infer the type our data based on the return type of our loader function.
@@ -30,14 +31,14 @@ type LoaderData = Awaited<ReturnType<typeof loader>>;
 
 export const loader = async ({ context, params }: LoaderArgs) => {
   let env = context.env as Env;
-  let likeEmail = `'user_${generateRandomInt(1, 9)}%'`
-  return await env.DB.prepare(USER_QUERY).bind(likeEmail).all<UserRow>();
+  let lowerBound = `'user_${generateRandomInt(1, 100)}%'`;
+  return await env.DB.prepare(USER_QUERY).bind(lowerBound).all<UserRow>();
 };
 
 export default function Index() {
   const { results, meta } = useLoaderData<LoaderData>();
   if (!results) {
-    throw json({error: "no users found"})
+    throw json({ error: "no users found" });
   }
 
   return (
